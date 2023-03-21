@@ -46,18 +46,23 @@ header div {
 }
 
 .main-container {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   column-gap: 30px;
   padding-top: 80px;
   width: 95%;
   /* margin: auto; */
-  position: relative;
+  /* position: relative; */
+  float: left;
+  width: 100%;
+  background-color: white;
 }
 
 .video {
-  width: 50.2%;
-  padding-left: 10px;
+  float: left;
+  width: 75%;
+
+  padding: 50px 150px 50px 50px;
 }
 
 .heading-holder {
@@ -89,9 +94,8 @@ header div {
 }
 
 .posters {
-  width: 23.2%;
-  position: absolute;
-  right: 0px;
+  float: right;
+  width: 25%;
 }
 
 .poster-heading-holder p {

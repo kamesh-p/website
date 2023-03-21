@@ -49,6 +49,28 @@ videoJSON = {
     },
   ],
 };
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "de253a2c9cmshc67ecf0e13b6e76p16d009jsne2a6b280eee2",
+    "X-RapidAPI-Host": "imdb8.p.rapidapi.com",
+  },
+};
+
+fetch("https://imdb8.p.rapidapi.com/auto-complete?q=game%20", options)
+  .then((response) => response.json())
+  .then((data) => {
+    const list = data.d.slice(0, 3);
+    // const gamePoster = list.slice(0, 3);
+    console.log(list);
+    list.map((item) => {
+      const name = item.l;
+      const poster = item.i.imageUrl;
+      const movie = `<li><img src ="${poster}"><h2>${name}</h2></li>`;
+      document.querySelector(".poster-img-holder").innerHTML += movie;
+    });
+  })
+  .catch((err) => console.error(err));
 posterJSON = [
   {
     imageUrl:
@@ -127,12 +149,12 @@ for (let index = 0; index < videoJSON.comments.length; index++) {
   comment.append(commentHolder);
 }
 
-const posterImgHolder = document.querySelector(".poster-img-holder");
+// const posterImgHolder = document.querySelector(".poster-img-holder");
 
-for (let index = 0; index < posterJSON.length; index++) {
-  let posterImg = document.createElement("img");
-  posterImg.setAttribute("src", posterJSON[index].imageUrl);
-  posterImg.setAttribute("class", "poster-img");
-  // console.log(videoJSON['videoUrl']);
-  posterImgHolder.append(posterImg);
-}
+// for (let index = 0; index < posterJSON.length; index++) {
+//   let posterImg = document.createElement("img");
+//   posterImg.setAttribute("src", posterJSON[index].imageUrl);
+//   posterImg.setAttribute("class", "poster-img");
+//   // console.log(videoJSON['videoUrl']);
+//   posterImgHolder.append(posterImg);
+// }
